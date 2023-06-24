@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hus.ceremony.Dto.MessageDto;
 import com.hus.ceremony.Entity.Message;
 import com.hus.ceremony.Repository.MessageRepository;
 import com.hus.ceremony.Service.MessageService;
 
+@Service
 public class MessageServiceImp implements MessageService {
 
     @Autowired
@@ -24,6 +26,9 @@ public class MessageServiceImp implements MessageService {
         Message message = modelMapper.map(messageDto, Message.class);
         String dateTime = java.time.LocalDateTime.now().toString();
         message.setDateTime(dateTime);
+        if (message.getName() == null) {
+            message.setName("Anonymous");
+        }
         return messageRepository.save(message);
 
     }
@@ -53,6 +58,29 @@ public class MessageServiceImp implements MessageService {
     public List<Message> getAllMessage() {
 
         return messageRepository.findAll();
+
+    }
+    
+    @Override
+    public void deleteMessageById(int messageId) {
+        
+        messageRepository.deleteById(messageId);
+
+    }
+
+    @Override
+    public void deleteAllMessage() {
+
+        messageRepository.deleteAll();
+
+    }
+
+    @Override
+    public void deleteListMessage(List<Integer> messageId) {
+
+        for (int id : messageId) {
+            messageRepository.deleteById(id);
+        }
 
     }
     

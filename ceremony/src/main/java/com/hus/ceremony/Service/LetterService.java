@@ -14,5 +14,9 @@ public interface LetterService {
     List <Letter> getAllLetter();
 
     boolean updateLetter(String role, LetterDto letterDto);
+
+    void deleteLetterByRole(String role);
+
+    void deleteAllLetter();
     
 }

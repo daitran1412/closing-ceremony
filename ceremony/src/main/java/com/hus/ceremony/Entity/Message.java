@@ -22,11 +22,16 @@ public class Message {
     @Column(name = "message_id")
     private int messageId;
 
+    @Column(name = "name", nullable = true, columnDefinition = "varchar(255)")
+    private String name;
 
-    @Column(name = "message")
+    @Column(name = "message", nullable = false, columnDefinition = "varchar(5000)")
     private String message;
 
-    @Column(name = "date_time")
+    @Column(name = "social_link", nullable = true, columnDefinition = "varchar(1000)")
+    private String socialLink;
+
+    @Column(name = "date_time", nullable = false)
     private String dateTime;
 
 }

@@ -16,4 +16,8 @@ public interface MessageRepository extends JpaRepository<Message, Integer>  {
 
     List<Message> findAll();
 
+    void deleteByMessageId(int messageId);
+
+    void deleteAll();
+
 }

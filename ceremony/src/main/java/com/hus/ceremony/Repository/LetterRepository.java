@@ -12,4 +12,8 @@ public interface LetterRepository extends JpaRepository<Letter, Integer> {
     
     List<Letter> findAll();
 
+    void deleteByRole(String role);
+
+    void deleteAll();
+
 }

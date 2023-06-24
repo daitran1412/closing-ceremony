@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@500&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Pathway+Extreme:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&family=Pathway+Extreme:wght@300&family=Ysabeau:ital@1&display=swap");
+
+:root {
+  --color1: #f1622e;
+  --color2: #47adaf;
+  --bgInvitation: #fff4dc;
+  --colorTitle: #0a5b75;
+  --textColor1: #83694e;
+  --textColor2: #b8553f;
+  --textColor3: linear-gradient(to bottom right, #f1622e 30%, #47adaf 70%);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color1) 30%,
+    var(--color2) 70%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 480px) {
+  .container {
+    overflow: auto;
+  }
+}
+
+.invitation {
+  width: 57rem;
+  height: 40rem;
+  background-color: var(--bgInvitation);
+  box-shadow: 2px 5px 10px 10px rgba(0, 0, 0, 0.281);
+  display: flex;
+  font-family: Arial, sans-serif;
+  border-bottom: 10px solid #ff88009a;
+}
+@media screen and (max-width: 480px) {
+  .invitation {
+    width: 90%;
+    height: 80%;
+    flex-direction: column;
+    overflow: auto;
+  }
+}
+
+.image-graduation {
+  flex: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  flex: 70%;
+}
+
+.title {
+  font-family: "Pathway Extreme", sans-serif;
+  font-size: 3rem;
+  color: var(--colorTitle);
+  margin: 1rem;
+  padding: 0;
+  margin-top: 1rem;
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--colorTitle);
+  margin: 3rem;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+p {
+  font-family: "Ysabeau", cursive;
+  font-size: 1.1rem;
+}
+
+.tusu {
+  text-align: justify;
+  color: var(--textColor1);
+}
+
+.loimoi {
+  text-align: center;
+  color: var(--textColor2);
+}
+
+.special {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-info {
+  font-family: "Ysabeau", cursive;
+  font-size: 1.1rem;
+  text-decoration: underline
+}
+
+.btn-mess {
+  color: var(--color2);
+  font-size: 1.5rem;
+  background-color: var(--bgInvitation);
+  border: 0.1rem solid;
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 2.5rem;
+  font-family: "Ysabeau", cursive;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  line-height: 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-mess span{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color:  var(--color2);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  z-index: -1;
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+}
+
+.btn-mess:hover{
+  border: 0.1rem solid var(--color2);
+  color: var(--bgInvitation);
+}
+
+.btn-mess:hover span{
+  transform: translateY(0) scale(2);
+}
+
+.btn-mess span:nth-child(1){
+  --n: 1;
+}
+
+.btn-mess span:nth-child(2){
+  --n: 2;
+}
+
+.btn-mess span:nth-child(3){
+  --n: 3;
+}
+
+.btn-mess span:nth-child(4){
+  --n: 4;
+}

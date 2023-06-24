@@ -22,10 +22,10 @@ public class Letter {
     @Column(name = "letter_id")
     private int letterId;
 
-    @Column(name = "role")
+    @Column(name = "role", nullable = false)
     private String role;
 
-    @Column(name = "letter_content")
+    @Column(name = "letter_content", nullable = false)
     private String content;
     
 }

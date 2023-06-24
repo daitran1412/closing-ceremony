@@ -7,8 +7,12 @@ package com.hus.ceremony.Dto;
 public class MessageDto {
 
     private int messageId;
+    
+    private String name;
 
     private String message;
+
+    private String socialLink;
 
     private String dateTime;
     

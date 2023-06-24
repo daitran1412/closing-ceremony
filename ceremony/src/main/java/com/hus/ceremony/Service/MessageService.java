@@ -17,4 +17,10 @@ public interface MessageService {
 
         List<Message> getAllMessage();
 
+        void deleteMessageById(int messageId);
+
+        void deleteAllMessage();
+
+        void deleteListMessage(List<Integer> messageId);
+
 }

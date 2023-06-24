@@ -41,12 +41,12 @@ public class LetterController {
 
     }
 
-    @GetMapping("/get/{role}")
+    @GetMapping("/get/role/{role}")
     public ResponseEntity<?> getLetterByRole(@PathVariable String role) {
 
         Letter letter = letterService.getLetterByRole(role);
         if (letter == null) {
-            return ResponseEntity.ok(new Status("Letter not found!"));
+            return ResponseEntity.ok(new Status("Letter not found"));
         } else {
             LetterDto letterDto = modelMapper.map(letter, LetterDto.class);
             return ResponseEntity.ok(letterDto);
@@ -66,9 +66,37 @@ public class LetterController {
 
         boolean updateLetter = letterService.updateLetter(role, letterDto);
         if (updateLetter) {
-            return ResponseEntity.ok(new Status("Update letter successfully!"));
+            return ResponseEntity.ok(new Status("Update letter successfully"));
         } else {
-            return ResponseEntity.ok(new Status("Update letter failed!"));
+            return ResponseEntity.ok(new Status("Update letter failed"));
+        }
+
+    }
+
+    @PostMapping("/delete/role/{role}")
+    public ResponseEntity<?> deleteLetterByRole(@PathVariable String role) {
+
+        if(letterService.getLetterByRole(role) == null) {
+            return ResponseEntity.ok(new Status("Role not found"));
+        } else {
+            letterService.deleteLetterByRole(role);
+            return ResponseEntity.ok(new Status("Delete letter successfully"));
+        }
+
+    }
+
+    @PostMapping("/delete/all")
+    public ResponseEntity<?> deleteAllLetter() {
+
+        if(letterService.getAllLetter().size() != 0) {
+            letterService.deleteAllLetter();
+        } else {
+            return ResponseEntity.ok(new Status("Not letter"));
+        }
+        if(letterService.getAllLetter().size() == 0) {
+            return ResponseEntity.ok(new Status("Delete all letter successfully"));
+        } else {
+            return ResponseEntity.ok(new Status("Delete all letter failed"));
         }
 
     }
